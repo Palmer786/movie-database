@@ -1,0 +1,12 @@
+.language-select {
+  width: 20%;
+  margin: 0 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 1024px) {
+  .language-select {
+    display: none;
+  }
+}

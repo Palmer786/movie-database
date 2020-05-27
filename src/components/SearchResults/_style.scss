@@ -1,0 +1,23 @@
+.search-results {
+  display: flex;
+  width: 20%;
+  height: 100%;
+  color: $grayColor;
+  padding: 1rem 2rem;
+  justify-content: center;
+  align-items: center;
+
+  h4 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .search-results {
+    width: 100%;
+    min-height: 5rem;
+    height: 5vh;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}

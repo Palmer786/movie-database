@@ -1,0 +1,41 @@
+body {
+  font-family: 'Roboto Slab', serif;
+  background-color: white;
+}
+
+$primaryColor: rgb(8, 115, 255);
+$grayColor: rgb(128, 129, 138);
+$lightGray: rgb(206, 199, 199);
+
+.main-wrapper {
+  width: 70%;
+  margin: 0.5rem auto 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .main-wrapper {
+    width: 90%;
+  }
+}
+
+@import '../components/Header/style';
+@import '../components/LoadingSpinner/style';
+@import '../components/MoviesMap/style';
+@import '../components/MoviesMap/MovieElement/DisplayTypeFlex/style';
+@import '../components/MoviesMap/MovieElement/DisplayTypeGrid/style';
+@import '../pages/List/TabMenu/style';
+@import '../pages/Search/SearchOptions/style';
+@import '../components/SearchResults/style';
+@import '../components/DisplayType/style';
+@import '../pages/Search/style';
+@import '../pages/Discover/style';
+@import '../pages/Details/MovieDetails/style';
+@import '../pages/Details/HeaderDetails/style';
+@import '../components/Header/NavLinks/MobileNavLinks/MobileLanguageSelect/style';
+@import '../components/Header/SearchBar/DesktopSearchBar/style';
+@import '../components/Header/SearchBar/MobileSearchBar/style';
+@import '../components/Header/SearchBarButton/style';
+@import '../components/Header/MenuButton/style';
+@import '../components/Header/SelectLanguage/style';
+@import '../components/Header/NavLinks/DesktopNavLinks/style';
+@import '../components/Header/NavLinks/MobileNavLinks/style';

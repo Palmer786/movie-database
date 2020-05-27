@@ -1,0 +1,25 @@
+@media (max-width: 1024px) {
+  .menu-icon {
+    width: 30%;
+    height: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    order: 3;
+    z-index: 3;
+  }
+
+  .line {
+    margin: 0 auto;
+    width: 3.2rem;
+    height: 15%;
+    background: white;
+  }
+}
+
+@media (max-width: 786px) {
+  .menu-icon {
+    order: 3;
+    width: 20%;
+  }
+}

@@ -1,0 +1,76 @@
+.movie-element-flex {
+  width: 100%;
+  height: 25rem;
+  margin: 0.5rem auto 0.5rem auto;
+  display: flex;
+  flex-direction: row;
+  background: whitesmoke;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0.2rem black;
+
+  &:hover {
+    transition: transform 0.2s;
+    transform: scale(1.05);
+    box-shadow: 0 0 0.5rem $primaryColor;
+  }
+}
+
+.movie-image-flex {
+  min-width: 20rem;
+  width: 15%;
+  height: 100%;
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.movie-details-flex {
+  width: 85%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.title-flex {
+  height: 100%;
+  width: 75%;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .title {
+    font-size: 1.8rem;
+    color: $grayColor;
+    display: block;
+    text-decoration: none;
+  }
+
+  p {
+    color: rgb(136, 132, 132);
+    font-size: 1.2rem;
+  }
+
+  i {
+    color: $primaryColor;
+    font-size: 1.2rem;
+  }
+}
+
+.vote-average-flex {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h4 {
+    color: $primaryColor;
+    padding: 2rem 4rem;
+    font-size: 1.5rem;
+    border: 0.1rem solid $primaryColor;
+  }
+}

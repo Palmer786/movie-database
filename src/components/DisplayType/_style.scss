@@ -1,0 +1,26 @@
+.display-type {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  margin-right: 2rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  img {
+    margin: 0.6rem;
+    height: 3.2rem;
+    width: 3.2rem;
+  }
+  .inactive {
+    cursor: pointer;
+    &:hover {
+      filter: saturate(50);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .display-type {
+    display: none;
+  }
+}

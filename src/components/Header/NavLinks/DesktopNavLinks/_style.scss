@@ -1,0 +1,58 @@
+.logo {
+  width: 15%;
+  h1 {
+    font-size: 2.4rem;
+    color: white;
+    &:hover {
+      color: $primaryColor;
+      transition: color 0.2s;
+    }
+  }
+}
+
+.list {
+  width: 35%;
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    li {
+      width: 50%;
+      list-style: none;
+      font-size: 1.8rem;
+      text-align: center;
+      &:hover {
+        color: $primaryColor;
+        transition: color 0.2s;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .logo {
+    width: 30%;
+    text-align: center;
+    order: 1;
+
+    h1 {
+      font-size: 2.1rem;
+    }
+  }
+  .list {
+    display: none;
+  }
+}
+
+@media (max-width: 786px) {
+  .logo {
+    order: 2;
+    width: 60%;
+  }
+}
