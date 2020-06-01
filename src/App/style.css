@@ -1292,12 +1292,13 @@ nav {
   width: 15%;
 }
 
-.logo h1 {
+.logo a {
   font-size: 2.4rem;
   color: white;
+  text-decoration: none;
 }
 
-.logo h1:hover {
+.logo a:hover {
   color: #0873ff;
   -webkit-transition: color 0.2s;
   transition: color 0.2s;

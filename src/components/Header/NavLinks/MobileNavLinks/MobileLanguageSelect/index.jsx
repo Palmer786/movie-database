@@ -20,12 +20,14 @@ const MobileLanguageSelect = () => {
         className="flag-container"
         onClick={() => setLanguage('en')}
         style={usFlagStyle}
+        alt="usflag"
       />
       <img
         src={plFlag}
         className="flag-container"
         onClick={() => setLanguage('pl')}
         style={plFlagStyle}
+        alt="plflag"
       />
     </div>
   );
