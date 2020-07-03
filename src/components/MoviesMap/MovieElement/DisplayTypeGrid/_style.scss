@@ -7,11 +7,12 @@
   background: whitesmoke;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 0.2rem black;
+  box-shadow: 0 0 0.2rem $primaryColor;
+  transition: transform 0.2s;
+
   &:hover {
     transition: transform 0.2s;
-    transform: scale(1.08);
-    box-shadow: 0 0 0.5rem $primaryColor;
+    transform: scale(1.05);
   }
 }
 

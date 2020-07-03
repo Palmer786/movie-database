@@ -2,20 +2,71 @@
   width: 20%;
   height: 100%;
   display: flex;
-  margin-right: 2rem;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  img {
-    margin: 0.6rem;
-    height: 3.2rem;
-    width: 3.2rem;
-  }
+
   .inactive {
     cursor: pointer;
-    &:hover {
-      filter: saturate(50);
+
+    .flex-line {
+      background: $grayColor;
     }
+
+    .grid-box {
+      border: 0.2rem solid $grayColor;
+    }
+  }
+}
+
+.grid-container {
+  width: 2.8rem;
+  height: 2.8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0 0.3rem;
+
+  &:hover {
+    .grid-box {
+      border: 0.2rem solid $primaryColor;
+    }
+  }
+}
+
+.grid-box {
+  height: 45%;
+  width: 40%;
+  border: 0.2rem solid $primaryColor;
+  border-radius: 4px;
+}
+
+.flex-container {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: flex;
+  margin: 0 0.3rem;
+  flex-direction: column;
+  align-self: center;
+  justify-content: space-evenly;
+
+  &:hover {
+    .flex-line {
+      background: $primaryColor;
+    }
+  }
+
+}
+
+.flex-line {
+  width: 100%;
+  height: 0.2rem;
+  background: $primaryColor;
+
+  &:nth-child(2) {
+    width: 70%;
   }
 }
 

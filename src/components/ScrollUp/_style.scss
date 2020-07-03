@@ -1,0 +1,44 @@
+.button-container {
+    width: 64px;
+    height: 64px;
+    position: fixed;
+    right: 40px;
+    bottom: 60px;
+    background: transparent;
+    border: 2px solid #166bc1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+        transition: background 0.2s;
+        background: rgba(25,118,218,0.8);
+    }
+
+    &:active {
+        background: rgba(255,255,0,0.6);
+    }
+}
+
+@media (max-width: 1024px) {
+    .button-container {
+    background: white;
+        &:hover {
+            background: transparent;
+        }
+
+        &:active {
+            background: rgba(255,255,0,0.6);
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    .button-container {
+        width: 48px;
+        height: 48px;
+    }
+}

@@ -4,6 +4,7 @@ const Homepage: React.FC = () => {
   useEffect(() => {
     window.location.href = '/popular';
   });
+
   return <div>{null}</div>;
 };
 

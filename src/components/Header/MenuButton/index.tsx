@@ -1,4 +1,5 @@
 import React from 'react';
+import MenuIcon from '@material-ui/icons/Menu';
 
 interface Props {
   toggleMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,17 +15,14 @@ const MenuButton: React.FC<Props> = ({
   laptop,
 }) => {
   const handleOnClick = () => {
-    document.body.style.overflow = isMenuOpen ? 'visible' : 'hidden';
     toggleMenuOpen(!isMenuOpen);
     toggleSearchOpen(false);
   };
   return (
     <>
       {laptop && (
-        <div className="menu-icon" onClick={handleOnClick}>
-          <div className="line" />
-          <div className="line" />
-          <div className="line" />
+        <div className="menu-icon">
+          <MenuIcon style={{fontSize: '32px'}} onClick={handleOnClick} />
         </div>
       )}
     </>

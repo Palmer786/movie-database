@@ -14,18 +14,17 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+
   a {
     margin: 0 1.5rem;
-    li {
-      &:hover {
-        color: $primaryColor;
-        border-bottom: 0.1rem solid $primaryColor;
-      }
-    }
   }
+
   li {
     font-size: 1.4rem;
     padding: 1.4rem;
+    &:hover {
+      color: $primaryColor;
+    }
   }
 }
 

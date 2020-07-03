@@ -4,7 +4,7 @@ import {useLocation} from 'react-router-dom';
 import useMovieSearch from '../../hooks/useMovieSearch';
 import useInfinityScroller from '../../hooks/useInfinityScroller';
 import DisplayType from '../../components/DisplayType';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import Loading from '../../components/Loading';
 import SearchResults from '../../components/SearchResults';
 import SearchOptions from './SearchOptions';
 
@@ -17,6 +17,7 @@ const Search: React.FC = () => {
 
   const [pageNumber, setPageNumber] = useState(1);
   const [year, setYear] = useState<number | undefined>(undefined);
+  const [isYearPickerOpen, toggleYearPicker] = useState(false);
   const [query, setQuery] = useState<string>(
     location.state ? location.state.query : '',
   );
@@ -49,12 +50,14 @@ const Search: React.FC = () => {
           setQuery={setQuery}
           year={year}
           setYear={setYear}
+          isYearPickerOpen={isYearPickerOpen}
+          toggleYearPicker={toggleYearPicker}
         />
         <SearchResults totalResults={totalResults} />
         <DisplayType />
       </div>
       <MoviesMap movies={movies} lastMovieElementRef={lastMovieElementRef} />
-      <LoadingSpinner loading={loading} />
+      {loading && <Loading />}
     </div>
   );
 };

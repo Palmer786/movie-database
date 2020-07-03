@@ -17,8 +17,8 @@
   "searchbar.show_all": "Pokaż wszystkie",
   "search.no_results": "Brak wyników",
   "search.placeholder": "Wyszukaj film...",
-  "search.found": "Znaleziono {totalResults} wyników...",
-  "search.found.more": "Znaleziono wiecej niz 500 wynikow wyszukiwania...",
+  "search.found": "Znaleziono {totalResults} wyników",
+  "search.found.more": "Znaleziono wiecej niz 500 wynikow wyszukiwania",
   "navbar.popular": "Popularne",
   "navbar.top_rated": "Najwyżej oceniane",
   "navbar.upcoming": "Nadchodzące",
@@ -33,5 +33,5 @@
   "details.date": "data wydania: ",
   "input.year": "Rok...",
   "input.search": "Wyszukaj...",
-  "no-description": "<Brak opisu>"
+  "no.description": "Brak opisu"
 }

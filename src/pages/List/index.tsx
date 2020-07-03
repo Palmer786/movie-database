@@ -3,7 +3,7 @@ import MoviesMap from '../../components/MoviesMap';
 import {useParams} from 'react-router-dom';
 import useFetchMovieList from '../../hooks/useFetchMovieList';
 import useInfinityScroller from '../../hooks/useInfinityScroller';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import Loading from '../../components/Loading';
 import TabMenu from './TabMenu';
 
 interface Params {
@@ -45,7 +45,7 @@ const List: React.FC = () => {
     <div className="main-wrapper">
       <TabMenu links={navLinks} />
       <MoviesMap movies={movies} lastMovieElementRef={lastMovieElementRef} />
-      <LoadingSpinner loading={loading} />
+      {loading && <Loading />}
     </div>
   );
 };

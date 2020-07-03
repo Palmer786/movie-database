@@ -1,39 +1,82 @@
 .search-bar {
-  width: 30%;
+  width: 25%;
   background: transparent;
   position: relative;
 
-  input {
-    color: rgb(77, 74, 74);
+  .search-bar-container {
     width: 100%;
+    height: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.2);
+    border-radius: 0.4rem;
+  }
+
+  .search-icon-container {
+    width: 20%;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-icon {
+    font-size: 2.6rem;
+  }
+
+  input {
+    color: rgb(255,255,255);
+    width: 75%;
     min-height: 2.4rem;
     height: 4vh;
-    text-align: center;
     font-size: 1.4rem;
-    border: 0.1rem solid $primaryColor;
+    background: transparent;
+    border: none;
+    transition: width 0.2s ease-in;
+
+    &:focus {
+      outline: none;
+      width: 70%;
+      transition: width 0.2s ease-in;
+    }
+
+    &::placeholder {
+      color: rgba(255,255,255,0.4);
+    }
   }
+}
+
+.clear-search {
+  width: 5%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 0.5rem;
+  z-index: 1;
 }
 
 .suggestions {
   position: absolute;
   width: 100%;
-  background: #333;
+  background: #1976d2;
   display: flex;
   flex-direction: column;
-  border: 0.1rem solid $primaryColor;
+  border-top: none;
   z-index: 1;
 
   .show-all {
     text-decoration: none;
-    color: $primaryColor;
-    border-top: 0.1rem solid $primaryColor;
+    background: #125ab4;
+    color: white;
     text-align: center;
     padding: 0.7rem;
     font-size: 1.4rem;
 
     h4 {
       &:hover {
-        background: rgb(77, 76, 76);
+        background: #166bc1;
         color: white;
       }
     }
@@ -48,22 +91,24 @@
 .suggested-element {
   height: 5vh;
   width: 100%;
-  border-top: 0.1rem solid #666;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   text-decoration: none;
   font-size: 1.3rem;
+  &:first-child {
+    border-top: none;
+  }
 
   &:hover {
-    background: $primaryColor;
+    background: #166bc1;
   }
 }
 
 @media (max-width: 1024px) {
   .search-bar {
     order: 2;
-    width: 40%;
+    width: 50%;
   }
 }

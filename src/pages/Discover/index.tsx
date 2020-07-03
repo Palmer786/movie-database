@@ -5,21 +5,21 @@ import {LanguageContext} from '../../contexts/LanguageContext';
 import handleError from '../../utils/handleError';
 import useMovieDiscover from '../../hooks/useMovieDiscover';
 import useInfinityScroller from '../../hooks/useInfinityScroller';
-import {useIntl} from 'react-intl';
 import SortOptions from './SortOptions';
 import DisplayType from '../../components/DisplayType';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import Loading from '../../components/Loading';
 import SearchResults from '../../components/SearchResults';
 import GenreSelect from './GenreSelect';
+import YearPicker from '../../components/YearPicker';
 
 const Discover: React.FC = () => {
   const [genres, setGenres] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+  const [isYearPickerOpen, toggleYearPicker] = useState(false);
   const [selectedGenre, setSelectedGenre] = useState('');
   const [year, setYear] = useState<number | undefined>(undefined);
   const [sortBy, setSortBy] = useState('popularity.desc');
   const [language] = useContext(LanguageContext);
-  const intl = useIntl();
 
   const fetchGenres = () => {
     api
@@ -49,9 +49,6 @@ const Discover: React.FC = () => {
     setPageNumber(1);
   }, [year, sortBy, selectedGenre, language]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setYear(+e.target.value);
-
   return (
     <div className="main-wrapper">
       <div className="discover-menu">
@@ -61,24 +58,19 @@ const Discover: React.FC = () => {
             setSelectedGenre={setSelectedGenre}
             selectedGenre={selectedGenre}
           />
-          <input
-            type="text"
-            value={year}
-            placeholder={intl.formatMessage({
-              id: 'input.year',
-              defaultMessage: 'Year...',
-            })}
-            onChange={handleChange}
+          <YearPicker
+            year={year}
+            setYear={setYear}
+            isYearPickerOpen={isYearPickerOpen}
+            toggleYearPicker={toggleYearPicker}
           />
           <SortOptions value={sortBy} onChange={setSortBy} />
         </div>
         <SearchResults totalResults={totalResults} />
         <DisplayType />
       </div>
-
       <MoviesMap movies={movies} lastMovieElementRef={lastMovieElementRef} />
-
-      <LoadingSpinner loading={loading} />
+      {loading && <Loading />}
     </div>
   );
 };

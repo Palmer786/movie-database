@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {Link} from 'react-router-dom';
 
@@ -25,8 +25,27 @@ const MobileSearchBar: React.FC<Props> = ({
   toggleSearchOpen,
 }) => {
   const intl = useIntl();
+  const inputRef = useRef(null);
 
   const handleMobileLinkOnClick = () => toggleSearchOpen(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setQuery(e.target.value);
+
+  const onBlur = (e: any) => {
+    if (!e.currentTarget.contains(e.relatedTarget))
+      return toggleSearchOpen(false);
+  };
+
+  useEffect(() => {
+    if (isSearchOpen) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      return inputRef.current.focus();
+    } else {
+      toggleSearchOpen(false);
+    }
+  }, [isSearchOpen]);
 
   return (
     <div
@@ -37,7 +56,7 @@ const MobileSearchBar: React.FC<Props> = ({
           isSearchOpen ? 'mobile-search search-visible' : 'mobile-search'
         }
       >
-        <div className="mobile-search-bar">
+        <div className="mobile-search-bar" onBlur={onBlur}>
           <>
             <input
               type="text"
@@ -46,7 +65,8 @@ const MobileSearchBar: React.FC<Props> = ({
                 defaultMessage: 'Search for a movie...',
               })}
               value={query}
-              onChange={e => setQuery(e.target.value)}
+              ref={inputRef}
+              onChange={handleChange}
             />
             <div className="mobile-suggestions">
               {movies.map(movie => {

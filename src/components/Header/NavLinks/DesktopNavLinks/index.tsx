@@ -9,7 +9,7 @@ const DesktopNavLinks: React.FC = () => {
   ];
 
   const activeStyle: React.CSSProperties = {
-    color: 'rgb(8, 115, 255)',
+    border: '1px solid rgba(255,255,255,0.6)',
   };
 
   return (

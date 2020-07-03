@@ -8,10 +8,12 @@ import Search from '../pages/Search';
 import Discover from '../pages/Discover';
 import ErrorPage from '../pages/ErrorPage';
 import './style.css';
+import ScrollUp from '../components/ScrollUp';
 
 const App: React.FC = () => (
   <Router>
     <Header />
+    <ScrollUp />
     <Switch>
       <Route exact path="/" component={Homepage} />
       <Route path="/movie/:id" component={MovieDetails} />

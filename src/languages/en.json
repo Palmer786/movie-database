@@ -17,8 +17,8 @@
   "searchbar.show_all": "Show all",
   "search.no_results": "No results",
   "search.placeholder": "Search for a movie...",
-  "search.found": "{totalResults} search results found...",
-  "search.found.more": "More than 500 search results found...",
+  "search.found": "{totalResults} search results found",
+  "search.found.more": "More than 500 search results found",
   "navbar.popular": "Popular",
   "navbar.top_rated": "Top Rated",
   "navbar.upcoming": "Upcoming",
@@ -33,5 +33,5 @@
   "details.date": "release date: ",
   "input.year": "Year...",
   "input.search": "Search...",
-  "no-description": "<No description>"
+  "no.description": "No description"
 }

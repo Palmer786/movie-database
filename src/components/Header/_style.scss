@@ -2,7 +2,11 @@ header {
   width: 100%;
   min-height: 5rem;
   height: 8vh;
-  background: black;
+  background: $primaryColor;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 
 nav {
@@ -13,6 +17,18 @@ nav {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+@media (max-width: 1440px) {
+  nav {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1228px) {
+  nav {
+    width: 95%;
+  }
 }
 
 @media (max-width: 1024px) {

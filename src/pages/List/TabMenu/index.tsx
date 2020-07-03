@@ -15,7 +15,7 @@ const TabMenu: React.FC<Props> = ({links}) => {
   };
 
   const activeStyle = {
-    color: 'rgb(8, 115, 255)',
+    color: '#1976d2',
     borderBottom: '0.1rem solid rgb(8, 115, 255)',
   };
 

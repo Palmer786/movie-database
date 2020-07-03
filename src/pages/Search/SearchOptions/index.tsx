@@ -1,21 +1,28 @@
 import React from 'react';
 import {useIntl} from 'react-intl';
+import YearPicker from '../../../components/YearPicker';
 
 interface Props {
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
   year: number | undefined;
   setYear: React.Dispatch<React.SetStateAction<number | undefined>>;
+  isYearPickerOpen: boolean;
+  toggleYearPicker: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SearchOptions: React.FC<Props> = ({query, setQuery, year, setYear}) => {
+const SearchOptions: React.FC<Props> = ({
+  query,
+  setQuery,
+  year,
+  setYear,
+  isYearPickerOpen,
+  toggleYearPicker,
+}) => {
   const intl = useIntl();
 
   const queryChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setQuery(e.target.value);
-
-  const yearChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setYear(+e.target.value);
 
   return (
     <div className="search-options">
@@ -28,14 +35,11 @@ const SearchOptions: React.FC<Props> = ({query, setQuery, year, setYear}) => {
         value={query}
         onChange={queryChange}
       />
-      <input
-        type="text"
-        placeholder={intl.formatMessage({
-          id: 'input.year',
-          defaultMessage: 'Year...',
-        })}
-        value={year}
-        onChange={yearChange}
+      <YearPicker
+        year={year}
+        setYear={setYear}
+        isYearPickerOpen={isYearPickerOpen}
+        toggleYearPicker={toggleYearPicker}
       />
     </div>
   );

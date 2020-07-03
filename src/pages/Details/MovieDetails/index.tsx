@@ -41,8 +41,8 @@ const MovieDetails: React.FC<Props> = ({data}) => {
               overview
             ) : (
               <FormattedMessage
-                id="no-description"
-                defaultMessage="<No description>"
+                id="no.description"
+                defaultMessage="No description"
               />
             )}
           </p>

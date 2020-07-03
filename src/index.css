@@ -2,6 +2,7 @@ html {
   /* 1 rem = 10 px */
   font-size: 62.5%;
   width: 100%;
+  scroll-behavior: smooth;
   /* overflow-x: hidden; */
 }
 

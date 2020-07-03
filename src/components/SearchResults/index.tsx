@@ -8,9 +8,9 @@ interface Props {
 const SearchResults: React.FC<Props> = ({totalResults}) => {
   return (
     <>
-      {totalResults && (
+      {totalResults ? (
         <div className="search-results">
-          {totalResults > 500 ? (
+          {totalResults! > 500 ? (
             <h4>
               <FormattedMessage
                 id="search.found.more"
@@ -25,16 +25,18 @@ const SearchResults: React.FC<Props> = ({totalResults}) => {
                 defaultMessage={`${totalResults} search results found...`}
               />
             </h4>
-          ) : totalResults === 0 ? (
-            <h4>
-              <FormattedMessage
-                id="search.no_results"
-                defaultMessage="No results"
-              />
-            </h4>
           ) : (
             undefined
           )}
+        </div>
+      ) : (
+        <div className="search-results">
+          <h4>
+            <FormattedMessage
+              id="search.no_results"
+              defaultMessage="No results"
+            />
+          </h4>
         </div>
       )}
     </>

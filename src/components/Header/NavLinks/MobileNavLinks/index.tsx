@@ -28,21 +28,23 @@ const MobileNavLinks: React.FC<Props> = ({
           <div
             className={isMenuOpen ? 'mobile-menu list-visible' : 'mobile-menu'}
           >
-            <div className="mobile-links">
-              {mobileLinks.map(link => {
-                return (
-                  <NavLink to={`/${link}`} key={link} onClick={handleOnClick}>
-                    <li>
-                      <FormattedMessage
-                        defaultMessage={link}
-                        id={`navbar.${link}`}
-                      >
-                        {message => message}
-                      </FormattedMessage>
-                    </li>
-                  </NavLink>
-                );
-              })}
+            <div className="link-container">
+              <div className="mobile-links">
+                {mobileLinks.map(link => {
+                  return (
+                    <NavLink to={`/${link}`} key={link} onClick={handleOnClick}>
+                      <li>
+                        <FormattedMessage
+                          defaultMessage={link}
+                          id={`navbar.${link}`}
+                        >
+                          {message => message}
+                        </FormattedMessage>
+                      </li>
+                    </NavLink>
+                  );
+                })}
+              </div>
             </div>
             <MobileLanguageSelect />
           </div>

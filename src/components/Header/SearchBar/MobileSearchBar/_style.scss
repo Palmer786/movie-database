@@ -6,7 +6,9 @@
     left: 0;
     width: 100%;
     height: 0;
-    background: #333;
+    background: #166bc1;
+    box-shadow: 0 0.1rem 0.4rem black;
+
   }
   .search-open {
     min-height: 25rem;
@@ -18,7 +20,7 @@
   }
 
   .mobile-search-bar {
-    width: 100%;
+    width: 80%;
     height: 100%;
     background: transparent;
     position: relative;
@@ -29,14 +31,22 @@
     align-items: center;
 
     input {
-      color: rgb(77, 74, 74);
+      color: rgb(255,255,255);
+      background: rgba(255,255,255,0.2);
       width: 80%;
       min-height: 2.4rem;
-      height: 3vh;
+      border-radius: 0.4rem;
+      height: 4vh;
+      border: none;
       text-align: center;
       font-size: 1.4rem;
+
       &:focus {
         outline: none;
+      }
+
+      &::placeholder {
+        color: rgba(255,255,255,0.4);
       }
     }
   }
@@ -54,15 +64,15 @@
 
     .mobile-show-all {
       text-decoration: none;
-      color: $primaryColor;
-      border-top: 0.1rem solid $primaryColor;
+      color: white;
+      border-top: 0.1rem solid white;
       text-align: center;
       padding: 0.7rem;
       font-size: 1.4rem;
 
       h4 {
         &:hover {
-          background: rgb(77, 76, 76);
+          background: #166bc1;
           color: white;
         }
       }
@@ -79,7 +89,6 @@
     display: flex;
     position: relative;
     top: 0;
-    width: 0;
     height: 100%;
     width: 100%;
     flex-direction: column;
@@ -89,7 +98,7 @@
   .mobile-suggested-element {
     height: 50%;
     width: 100%;
-    border-top: 0.1rem solid #666;
+    border-top: 0.1rem solid white;
     display: flex;
     justify-content: center;
     align-items: center;
