@@ -1,8 +1,13 @@
 .relative-container {
   width: 25%;
-  height: 100%;
+  height: 90%;
   background: transparent;
   position: relative;
+  border-bottom: 1px solid $grayColor;
+
+  &:hover {
+    border-bottom: 1px solid $primaryColor;
+  }
 }
 
 .year-picker-container {
@@ -13,11 +18,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid $grayColor;
-
-  &:hover {
-    border-bottom: 1px solid $primaryColor;
-  }
 }
 
 .input-container {
@@ -140,11 +140,11 @@
   .relative-container {
     height: 28%;
     width:  80%;
+    border: 0.1rem solid #80818a;
   }
 
   .year-picker-container {
     padding: 1rem 1rem;
-    border: 0.1rem solid #80818a;
     background: transparent;
   }
 
