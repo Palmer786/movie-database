@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {FormattedMessage} from 'react-intl';
 import getImage from '../../../../utils/getImage';
 import {Movie} from '../../index';
-import Loading from '../../../Loading';
+import styled from 'styled-components';
 import LoadingSpinner from '../../../LoadingSpinner';
 
 interface Props {
@@ -19,6 +19,14 @@ type Observer =
   | null
   | undefined;
 
+interface MovieImage {
+  isImageLoaded: boolean;
+}
+
+const MovieImage = styled.img`
+  display: ${(props: MovieImage) => (props.isImageLoaded ? '' : 'none')};
+`;
+
 const DisplayTypeFlex: React.FC<Props> = ({movie, observer, newTitle}) => {
   const {vote_average, poster_path, id, release_date, overview} = movie;
   const [isImageLoaded, toggleImageLoaded] = useState(false);
@@ -29,8 +37,8 @@ const DisplayTypeFlex: React.FC<Props> = ({movie, observer, newTitle}) => {
     <Link to={`/movie/${id}`}>
       <div ref={observer} className="movie-element-flex">
         <div className="movie-image-flex">
-          <img
-            style={isImageLoaded ? {} : {display: 'none'}}
+          <MovieImage
+            isImageLoaded={isImageLoaded}
             src={getImage(poster_path)}
             alt="movieImage"
             onLoad={() => handleOnLoad()}

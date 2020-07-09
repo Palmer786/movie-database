@@ -9,6 +9,7 @@
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
     "@types/react-router-dom": "^5.1.5",
+    "@types/styled-components": "^5.1.1",
     "axios": "^0.19.2",
     "i18next": "^19.4.1",
     "react": "^16.13.0",

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import SelectLanguage from './SelectLanguage';
-import Navlinks from './NavLinks';
+import NavLinks from './NavLinks';
 import SearchBar from './SearchBar';
 import SearchBarButton from './SearchBarButton';
 import MenuButton from './MenuButton';
@@ -27,7 +27,7 @@ const Header: React.FC = () => {
   return (
     <header>
       <nav>
-        <Navlinks
+        <NavLinks
           isMenuOpen={isMenuOpen}
           toggleMenuOpen={toggleMenuOpen}
           laptop={laptop}

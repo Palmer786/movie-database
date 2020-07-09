@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import getImage from '../../../../utils/getImage';
 import {Movie} from '../../index';
-import Loading from '../../../Loading';
 import LoadingSpinner from '../../../LoadingSpinner';
+import styled from 'styled-components';
 
 interface Props {
   movie: Movie;
@@ -18,6 +18,14 @@ type Observer =
   | null
   | undefined;
 
+interface MovieImage {
+  isImageLoaded: boolean;
+}
+
+const MovieImage = styled.img`
+  display: ${(props: MovieImage) => (props.isImageLoaded ? '' : 'none')};
+`;
+
 const DisplayTypeGrid: React.FC<Props> = ({movie, observer, newTitle}) => {
   const {vote_average, poster_path, id, release_date} = movie;
   const [isImageLoaded, toggleImageLoaded] = useState(false);
@@ -28,8 +36,8 @@ const DisplayTypeGrid: React.FC<Props> = ({movie, observer, newTitle}) => {
     <Link to={`/movie/${id}`}>
       <div ref={observer} className="movie-element-grid">
         <div className="movie-image-grid">
-          <img
-            style={isImageLoaded ? {} : {display: 'none'}}
+          <MovieImage
+            isImageLoaded={isImageLoaded}
             src={getImage(poster_path)}
             alt="movieImage"
             onLoad={() => handleOnLoad()}

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
@@ -17,33 +17,34 @@ const YearPicker: React.FC<Props> = ({
   isYearPickerOpen,
   toggleYearPicker,
 }) => {
-  const [buttons, setButtons] = useState([
-    2006,
-    2007,
-    2008,
-    2009,
-    2010,
-    2011,
-    2012,
-    2013,
-    2014,
-    2015,
-    2016,
-    2017,
-    2018,
-    2019,
-    2020,
-  ]);
+  const getYearArray = (): number[] => {
+    const currentYear = new Date().getFullYear();
+    let firstYear = currentYear - 14;
+    const array = [];
+    while (firstYear <= currentYear) {
+      array.push(firstYear);
+      firstYear = firstYear + 1;
+    }
+    return array;
+  };
+
+  const yearArray = getYearArray();
+
+  useEffect(() => {
+    setYearList(yearArray);
+  }, []);
+
+  const [yearList, setYearList] = useState([0]);
   const intl = useIntl();
 
   const toggleYearPickerOpen = () => toggleYearPicker(!isYearPickerOpen);
 
   const prevButtons = () => {
-    setButtons(prev => prev.map(button => button - 15));
+    setYearList(prev => prev.map(button => button - 15));
   };
 
   const nextButtons = () => {
-    setButtons(prev => prev.map(button => button + 15));
+    setYearList(prev => prev.map(button => button + 15));
   };
 
   const closeYearPicker = () => {
@@ -82,21 +83,13 @@ const YearPicker: React.FC<Props> = ({
       >
         <div className="year-slider">
           <ArrowBackIosIcon onClick={() => prevButtons()} />
-          <h2>{`${buttons[0]}-${buttons[14]}`}</h2>
+          <h2>{`${yearList[0]}-${yearList[14]}`}</h2>
           <ArrowForwardIosIcon onClick={() => nextButtons()} />
         </div>
         <div className="year-list">
-          {buttons.map(button =>
+          {yearList.map(button =>
             button === year ? (
-              <button
-                key={button}
-                style={{
-                  cursor: 'default',
-                  border: '1px solid black',
-                  background: '#2235af',
-                  color: 'white',
-                }}
-              >
+              <button key={button} className="current-year">
                 {button}
               </button>
             ) : (

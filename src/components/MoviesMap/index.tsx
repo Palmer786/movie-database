@@ -7,8 +7,6 @@ interface Props {
   lastMovieElementRef: Observer;
 }
 
-export type lastMovieElementRef = (node: Element) => void;
-
 export interface Movie {
   id: number;
   title: string;
@@ -27,16 +25,19 @@ type Observer =
 
 const MoviesMap: React.FC<Props> = ({movies, lastMovieElementRef}) => {
   const [displayType, setDisplayType] = useContext(DisplayContext);
+
   useEffect(() => {
     window.addEventListener('resize', () => {
       const laptop = window.matchMedia('(max-width: 1024px)').matches;
       if (laptop) setDisplayType('grid');
     });
   }, []);
+
   return (
     <div className={displayType === 'grid' ? 'main-grid' : 'main-flex'}>
       {movies.map((movie, index) => {
         const {id} = movie;
+
         return (
           <MovieElement
             {...(movies.length === index + 1

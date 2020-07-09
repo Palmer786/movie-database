@@ -15,13 +15,15 @@ const List: React.FC = () => {
   const params: Params = useParams();
 
   const navLinks = ['popular', 'top_rated', 'upcoming'];
-  const findEndpoint = () => {
+
+  const findEndpoint = (): string => {
     const endpoint = navLinks.filter(link => link === params.endpoint);
     return endpoint[0];
   };
 
   const currentEndpoint = findEndpoint();
-  if (currentEndpoint === undefined) {
+
+  if (!currentEndpoint) {
     window.location.href = '/404';
   }
 

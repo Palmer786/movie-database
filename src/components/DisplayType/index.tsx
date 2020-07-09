@@ -4,7 +4,7 @@ import {DisplayContext} from '../../contexts/DisplayContext';
 const DisplayType: React.FC = () => {
   const [displayType, setDisplayType] = useContext(DisplayContext);
 
-  const handleDisplayOnClick = (type: string) => {
+  const handleDisplayOnClick = (type: string): void => {
     setDisplayType(type);
   };
 

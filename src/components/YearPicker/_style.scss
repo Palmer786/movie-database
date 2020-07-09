@@ -104,6 +104,13 @@
   grid-gap: 5px;
   padding: 5px;
 
+  .current-year {
+    cursor: default;
+    border: 1px solid black;
+    background: #2235af;
+    color: white;
+  }
+
   button {
     background: none;
     border: none;
