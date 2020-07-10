@@ -4,10 +4,6 @@ import plFlag from '../../../images/pl-flag.png';
 import usFlag from '../../../images/us-flag.png';
 import styled from 'styled-components';
 
-interface Props {
-  laptop: boolean;
-}
-
 interface Flag {
   language: string;
 }
@@ -20,7 +16,7 @@ const PlFlag = styled.img`
   filter: ${({language}: Flag) => (language === 'pl' ? 'grayscale(0)' : '')};
 `;
 
-const SelectLanguage: React.FC<Props> = ({laptop}) => {
+const SelectLanguage: React.FC = () => {
   const [language, setLanguage] = useContext(LanguageContext);
 
   const handleLanguageOnClick = (lang: string) => {
@@ -28,26 +24,22 @@ const SelectLanguage: React.FC<Props> = ({laptop}) => {
   };
 
   return (
-    <>
-      {!laptop && (
-        <div className="language-select">
-          <UsFlag
-            src={usFlag}
-            className="flag-container"
-            onClick={() => handleLanguageOnClick('en')}
-            language={language}
-            alt="usFlag"
-          />
-          <PlFlag
-            src={plFlag}
-            className="flag-container"
-            onClick={() => handleLanguageOnClick('pl')}
-            language={language}
-            alt="plFlag"
-          />
-        </div>
-      )}
-    </>
+    <div className="language-select">
+      <UsFlag
+        src={usFlag}
+        className="flag-container"
+        onClick={() => handleLanguageOnClick('en')}
+        language={language}
+        alt="usFlag"
+      />
+      <PlFlag
+        src={plFlag}
+        className="flag-container"
+        onClick={() => handleLanguageOnClick('pl')}
+        language={language}
+        alt="plFlag"
+      />
+    </div>
   );
 };
 

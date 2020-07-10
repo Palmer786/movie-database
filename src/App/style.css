@@ -1007,6 +1007,10 @@ nav {
     order: 3;
     text-align: right;
   }
+  .searchbar-icon svg {
+    order: 3;
+    font-size: 3.2rem;
+  }
 }
 @media (max-width: 1024px) {
   .menu-icon {
@@ -1014,6 +1018,9 @@ nav {
     height: 3.2rem;
     order: 1;
     z-index: 3;
+  }
+  .menu-icon svg {
+    font-size: 3.2rem;
   }
   .menu-icon svg:active {
     border-radius: 50%;

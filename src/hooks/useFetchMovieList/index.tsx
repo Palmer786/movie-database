@@ -40,6 +40,7 @@ const useFetchMovieList = (
   const [loading, setLoading] = useState<boolean>(false);
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [language] = useContext(LanguageContext);
+
   useEffect(() => {
     setMovies([]);
   }, [params, language]);

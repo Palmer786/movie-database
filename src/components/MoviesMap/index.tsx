@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import MovieElement from './MovieElement';
 import {DisplayContext} from '../../contexts/DisplayContext';
+import {ResolutionContext} from '../../contexts/ResolutionContext';
 
 interface Props {
   movies: Movie[];
@@ -25,13 +26,11 @@ type Observer =
 
 const MoviesMap: React.FC<Props> = ({movies, lastMovieElementRef}) => {
   const [displayType, setDisplayType] = useContext(DisplayContext);
+  const {laptop} = useContext(ResolutionContext);
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      const laptop = window.matchMedia('(max-width: 1024px)').matches;
-      if (laptop) setDisplayType('grid');
-    });
-  }, []);
+    if (laptop) setDisplayType('grid');
+  }, [laptop]);
 
   return (
     <div className={displayType === 'grid' ? 'main-grid' : 'main-flex'}>

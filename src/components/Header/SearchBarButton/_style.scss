@@ -9,5 +9,10 @@
     display: block;
     order: 3;
     text-align: right;
+
+    svg {
+      order: 3;
+      font-size: 3.2rem;
+    }
   }
 }

@@ -4,7 +4,6 @@ const createConfig = () => {
   const api = axios.create({
     baseURL: 'https://api.themoviedb.org/3/',
   });
-  // eslint-disable-next-line
   const api_key = process.env.REACT_APP_API_KEY;
 
   api.interceptors.request.use(config => {

@@ -15,11 +15,12 @@ const NavLinks: React.FC<Props> = ({isMenuOpen, toggleMenuOpen, laptop}) => {
       <div className="logo">
         <Link to="/popular">MovieDB</Link>
       </div>
-      <MobileNavLinks
-        laptop={laptop}
-        toggleMenuOpen={toggleMenuOpen}
-        isMenuOpen={isMenuOpen}
-      />
+      {laptop && (
+        <MobileNavLinks
+          toggleMenuOpen={toggleMenuOpen}
+          isMenuOpen={isMenuOpen}
+        />
+      )}
       <DesktopNavLinks />
     </>
   );

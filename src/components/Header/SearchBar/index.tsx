@@ -29,15 +29,13 @@ const SearchBar: React.FC<Props> = ({
       />
     );
   return (
-    <>
-      <DesktopSearchBar
-        query={query}
-        setQuery={setQuery}
-        autoCompleted={autoCompleted}
-        movies={movies}
-        loading={loading}
-      />
-    </>
+    <DesktopSearchBar
+      query={query}
+      setQuery={setQuery}
+      autoCompleted={autoCompleted}
+      movies={movies}
+      loading={loading}
+    />
   );
 };
 

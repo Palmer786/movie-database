@@ -6,6 +6,8 @@
     z-index: 3;
 
     svg {
+      font-size: 3.2rem;
+
       &:active {
         border-radius: 50%;
         animation: menuIconClick 0.6s ease;

@@ -1,8 +1,10 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, SyntheticEvent} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
+import {useHistory} from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import ClearIcon from '@material-ui/icons/Clear';
 import {Link} from 'react-router-dom';
+import styled from 'styled-components';
 
 interface Props {
   query: string;
@@ -17,6 +19,25 @@ interface Movie {
   title: string;
 }
 
+interface ClearSearchWrapper {
+  autoCompleted: boolean;
+}
+
+interface SuggestionsWrapper {
+  autoCompleted: boolean;
+  isFocused: boolean;
+}
+
+const ClearSearchWrapper = styled.div`
+  visibility: ${({autoCompleted}: ClearSearchWrapper) =>
+    autoCompleted ? 'visible' : 'hidden'};
+`;
+
+const SuggestionsWrapper = styled.div`
+  visibility: ${({autoCompleted, isFocused}: SuggestionsWrapper) =>
+    autoCompleted && isFocused ? 'visible' : 'hidden'};
+`;
+
 const DesktopSearchBar: React.FC<Props> = ({
   query,
   setQuery,
@@ -26,6 +47,7 @@ const DesktopSearchBar: React.FC<Props> = ({
 }) => {
   const [isFocused, toggleFocus] = useState(false);
   const intl = useIntl();
+  const history = useHistory();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const clearInput = () => {
@@ -34,6 +56,13 @@ const DesktopSearchBar: React.FC<Props> = ({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     inputRef.current.focus();
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      history.push('/search', {query});
+      toggleFocus(false);
+    }
   };
 
   const handleLinkOnClick = () => toggleFocus(false);
@@ -65,22 +94,20 @@ const DesktopSearchBar: React.FC<Props> = ({
             onChange={handleChange}
             onFocus={() => handleOnFocus()}
             ref={inputRef}
+            onKeyUp={handleKeyPress}
           />
-          <div
+          <ClearSearchWrapper
             className="clear-search"
-            style={
-              autoCompleted ? {visibility: 'visible'} : {visibility: 'hidden'}
-            }
+            autoCompleted={autoCompleted}
             onClick={() => clearInput()}
           >
             <ClearIcon fontSize="small" />
-          </div>
+          </ClearSearchWrapper>
         </div>
-        <div
+        <SuggestionsWrapper
           className="suggestions"
-          style={
-            autoCompleted && isFocused ? undefined : {visibility: 'hidden'}
-          }
+          autoCompleted={autoCompleted}
+          isFocused={isFocused}
         >
           {movies.map(movie => {
             const {id, title} = movie;
@@ -129,7 +156,7 @@ const DesktopSearchBar: React.FC<Props> = ({
               />
             </h4>
           )}
-        </div>
+        </SuggestionsWrapper>
       </>
     </div>
   );
