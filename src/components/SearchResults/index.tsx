@@ -10,7 +10,7 @@ const SearchResults: React.FC<Props> = ({totalResults}) => {
     <>
       {totalResults ? (
         <div className="search-results">
-          {totalResults! > 500 ? (
+          {totalResults > 500 ? (
             <h4>
               <FormattedMessage
                 id="search.found.more"

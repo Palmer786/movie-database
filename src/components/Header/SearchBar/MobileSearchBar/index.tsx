@@ -25,7 +25,7 @@ const MobileSearchBar: React.FC<Props> = ({
   toggleSearchOpen,
 }) => {
   const intl = useIntl();
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(document.createElement('input'));
 
   const handleMobileLinkOnClick = () => toggleSearchOpen(false);
 
@@ -39,8 +39,6 @@ const MobileSearchBar: React.FC<Props> = ({
 
   useEffect(() => {
     if (isSearchOpen) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       return inputRef.current.focus();
     } else {
       toggleSearchOpen(false);

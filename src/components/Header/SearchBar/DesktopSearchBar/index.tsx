@@ -1,4 +1,4 @@
-import React, {useState, useRef, SyntheticEvent} from 'react';
+import React, {useState, useRef} from 'react';
 import {FormattedMessage, useIntl} from 'react-intl';
 import {useHistory} from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
@@ -48,13 +48,11 @@ const DesktopSearchBar: React.FC<Props> = ({
   const [isFocused, toggleFocus] = useState(false);
   const intl = useIntl();
   const history = useHistory();
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(document.createElement('input'));
 
   const clearInput = () => {
     setQuery('');
     toggleFocus(true);
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     inputRef.current.focus();
   };
 

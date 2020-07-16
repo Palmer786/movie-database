@@ -17,8 +17,9 @@ const MovieDetails: React.FC<Props> = ({data}) => {
     runtime,
   } = data;
 
-  const getRuntime = (number?: number): string => {
-    const hours = number! / 60;
+  const getRuntime = (number?: number): string | undefined => {
+    if (!number) return undefined;
+    const hours = number / 60;
     const rHours = Math.floor(hours);
     const minutes = (hours - rHours) * 60;
     const rMinutes = Math.round(minutes);
